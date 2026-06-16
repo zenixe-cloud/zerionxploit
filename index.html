@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZerionX-TEAM | STORE</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <canvas id="particles-bg"></canvas>
+
+    <nav class="navbar">
+        <div class="nav-logo">ZERIONXPLOIT</div>
+        <div class="nav-links">
+            <a href="#products">Products</a>
+            <a href="#products">Features</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container hero-container">
+        <div class="hero-content">
+            <div class="badge">STEALTH PANEL PROJECT</div>
+            <h1 class="title">ZerionXPLOIT</h1>
+            <p class="description">
+                Built for the Unseen. Dua tool yang dirancang untuk beroperasi di balik layar — tanpa terdeteksi.
+            </p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary"><i class="ph ph-rocket-launch"></i> Explore Products</a>
+                <a href="#" class="btn btn-secondary"><i class="ph ph-chat-teardrop-text"></i> Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-card">
+                <img src="logo.png" alt="KarenXPLOIT Logo">
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="products-section">
+        <div class="products-header">
+            <h4 class="section-subtitle">OUR OVERPOWER PROJECT</h4>
+            <h2 class="section-title">2 Stealth Project</h2>
+        </div>
+
+        <div class="pricing-cards container">
+            <!-- Card 1 -->
+            <article class="card popular">
+                <div class="card-badge">Basic</div>
+                <div class="card-icon-wrapper">
+                    <i class="ph ph-desktop"></i>
+                </div>
+                <div class="card-brand">
+                    <img src="logo.png" alt="Logo" class="card-logo">
+                    <div class="card-header">
+                        <h3 class="card-title">Cooming Soon</h3>
+                        <p class="card-subtitle">STHEALT REMOTE CONTROLLER</p>
+                    </div>
+                </div>
+                <div class="price-container">
+                    <h4 class="price">Rp0</h4>
+                    <span class="price-usd">$9999</span>
+                </div>
+                <div class="purchase-type">ONE TIME PURCHASE</div>
+
+                <ul class="features">
+                    <li><i class="ph ph-trophy"></i> Low Tier Competitive Support</li>
+                    <li><i class="ph ph-webcam"></i> Oncam / Handcam Support ESP</li>
+                    <li><i class="ph ph-globe"></i> Web Controller System</li>
+                    <li><i class="ph ph-shield-check"></i> Encrypted Connection</li>
+                </ul>
+
+                <a class="buy-btn" href="https://discord.gg/34DCGVNksK"
+                    style="text-decoration: none; display: inline-flex; justify-content: center; align-items: center;">
+                    <i class="ph ph-shopping-cart"></i>
+                    BUY HERE
+                </a>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card popular">
+                <div class="card-badge">POPULAR</div>
+                <div class="card-icon-wrapper">
+                    <i class="ph ph-qr-code"></i>
+                </div>
+                <div class="card-brand">
+                    <img src="logo.png" alt="Logo" class="card-logo">
+                    <div class="card-header">
+                        <h3 class="card-title">Core-X Panel</h3>
+                        <p class="card-subtitle">STEALTH PANEL IMPROVEMENTS</p>
+                    </div>
+                </div>
+                <div class="price-container">
+                    <h4 class="price">Rp600.000</h4>
+                    <span class="price-usd">$35</span>
+                </div>
+                <div class="purchase-type">ONE TIME PURCHASE</div>
+
+                <ul class="features">
+                    <li><i class="ph ph-trophy"></i> Mid - High Tier Competitive Support</li>
+                    <li><i class="ph ph-ghost"></i> Process & file hiding instant</li>
+                    <li><i class="ph ph-stack"></i> Multi-layer stealth protection</li>
+                    <li><i class="ph ph-headset"></i> 24/7 Supported Fully</li>
+                </ul>
+
+                <a class="buy-btn" href="https://discord.gg/34DCGVNksK"
+                    style="text-decoration: none; display: inline-flex; justify-content: center; align-items: center;">
+                    <i class="ph ph-shopping-cart"></i>
+                    BUY HERE
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <script>
+        const canvas = document.getElementById('particles-bg');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > width) this.x = 0;
+                else if (this.x < 0) this.x = width;
+
+                if (this.y > height) this.y = 0;
+                else if (this.y < 0) this.y = height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particles = [];
+            for (let i = 0; i < 150; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+
+</html>
